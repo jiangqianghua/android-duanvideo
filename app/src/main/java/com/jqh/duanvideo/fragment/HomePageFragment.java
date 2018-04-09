@@ -7,6 +7,8 @@ import android.support.v4.app.Fragment;
 import com.jqh.duanvideo.R;
 import com.jqh.duanvideo.base.BaseFragment;
 import com.jqh.duanvideo.utils.LogUtils;
+import com.jqh.duanvideo.utils.ViewUtils;
+import com.jqh.duanvideo.view.HomePageTopView;
 
 /**
  * Created by jiangqianghua on 18/4/9.
@@ -14,11 +16,26 @@ import com.jqh.duanvideo.utils.LogUtils;
 
 public class HomePageFragment extends BaseFragment {
 
+    private HomePageTopView mHomePageTopView ;
     @Override
     protected void initView() {
-
+        mHomePageTopView = bindViewId(R.id.homepageTop_view);
+        initEvent();
     }
 
+    private void initEvent(){
+        mHomePageTopView.setOnHomePageTopClickListener(new HomePageTopView.OnHomePageTopClickListener() {
+            @Override
+            public void onRecommendClick() {
+
+            }
+
+            @Override
+            public void onNearbyClick() {
+
+            }
+        });
+    }
     public static HomePageFragment newInstance() {
         Bundle bundle = new Bundle();
         HomePageFragment fragment = new HomePageFragment();

@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">DuanVideo</string>
+    <string name="recommend">推荐</string>
+    <string name="nearby">附近</string>
 </resources>
