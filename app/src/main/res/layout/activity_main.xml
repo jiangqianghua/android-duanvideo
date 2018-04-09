@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context="com.jqh.duanvideo.MainActivity">
+
+    <!--<com.jqh.duanvideo.view.CircleImageView-->
+        <!--android:layout_width="100dp"-->
+        <!--android:layout_height="100dp"-->
+        <!--android:src="@mipmap/ic_launcher"-->
+        <!--app:civ_border_color="#ffffff"-->
+        <!--app:civ_border_width="2sp"-->
+        <!--app:civ_border_overlay="true"-->
+        <!--/>-->
+    <!--<ImageView-->
+        <!--android:id="@+id/header_iv"-->
+        <!--android:layout_width="100dp"-->
+        <!--android:layout_height="100dp"-->
+        <!--/>-->
+
+    <FrameLayout
+        android:id="@+id/frame_layout"
+        android:background="#dddddd"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+    </FrameLayout>
+
+    <com.jqh.duanvideo.view.IconNumView
+        android:id="@+id/heart_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <Button
+        android:id="@+id/homepage_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="200dp"
+        android:text="home page"/>
+
+    <Button
+        android:id="@+id/followpage_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/homepage_btn"
+        android:text="follow page"/>
+
+
+</RelativeLayout>
