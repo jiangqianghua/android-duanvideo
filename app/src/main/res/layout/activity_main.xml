@@ -28,24 +28,25 @@
         android:layout_height="match_parent">
     </FrameLayout>
 
-    <com.jqh.duanvideo.view.IconNumView
-        android:id="@+id/heart_view"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
 
-    <Button
-        android:id="@+id/homepage_btn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="200dp"
-        android:text="home page"/>
+    <!--<Button-->
+        <!--android:id="@+id/homepage_btn"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_marginTop="200dp"-->
+        <!--android:text="home page"/>-->
 
-    <Button
-        android:id="@+id/followpage_btn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/homepage_btn"
-        android:text="follow page"/>
+    <!--<Button-->
+        <!--android:id="@+id/followpage_btn"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_below="@id/homepage_btn"-->
+        <!--android:text="follow page"/>-->
 
-
+    <com.jqh.duanvideo.view.BottomNavigationBarView
+        android:id="@+id/BottomNavigationBar_View"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_alignParentBottom="true">
+    </com.jqh.duanvideo.view.BottomNavigationBarView>
 </RelativeLayout>

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:jqh="http://schemas.android.com/apk/res-auto"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.jqh.duanvideo.view.BottomNavigationItemView
+        android:id="@+id/homepage_view"
+        android:layout_width="0dp"
+        android:layout_weight = "1"
+        android:layout_height="40dp"
+        jqh:name="@string/homepage"
+        jqh:selected="true"
+        >
+    </com.jqh.duanvideo.view.BottomNavigationItemView>
+
+    <com.jqh.duanvideo.view.BottomNavigationItemView
+        android:id="@+id/followpage_view"
+        android:layout_width="0dp"
+        android:layout_weight = "1"
+        android:layout_height="40dp"
+        jqh:name="@string/followpage">
+    </com.jqh.duanvideo.view.BottomNavigationItemView>
+
+
+    <ImageView
+        android:id="@+id/startrecode_imageview"
+        android:layout_width="0dp"
+        android:layout_weight = "1"
+        android:layout_height="50dp"
+        android:background="@mipmap/ic_launcher"/>
+
+    <com.jqh.duanvideo.view.BottomNavigationItemView
+        android:id="@+id/messagepage_view"
+        android:layout_width="0dp"
+        android:layout_weight = "1"
+        android:layout_height="40dp"
+        jqh:name="@string/message">
+    </com.jqh.duanvideo.view.BottomNavigationItemView>
+
+    <com.jqh.duanvideo.view.BottomNavigationItemView
+        android:id="@+id/mepage_view"
+        android:layout_width="0dp"
+        android:layout_weight = "1"
+        android:layout_height="40dp"
+        jqh:name="@string/me">
+    </com.jqh.duanvideo.view.BottomNavigationItemView>
+</LinearLayout>

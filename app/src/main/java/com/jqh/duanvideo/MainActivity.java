@@ -7,19 +7,20 @@ import android.widget.ImageView;
 
 import com.jqh.duanvideo.fragment.FollowPageFragment;
 import com.jqh.duanvideo.fragment.HomePageFragment;
+import com.jqh.duanvideo.fragment.MePageFragment;
+import com.jqh.duanvideo.fragment.MessagePageFragment;
+import com.jqh.duanvideo.view.BottomNavigationBarView;
 import com.jqh.duanvideo.view.IconNumView;
 import com.jqh.duanvideo.base.BaseActivity;
 
 public class MainActivity extends BaseActivity {
 
-    private ImageView headImageView ;
-    private IconNumView mHeartView ;
 
-    private Button homePageBtn ;
-    private Button followPageBtn;
-
+    private BottomNavigationBarView mBottomNavigationBarView ;
     private HomePageFragment mHomePageFragment ;
     private FollowPageFragment mFollowPageFragment ;
+    private MessagePageFragment mMessagePageFragment;
+    private MePageFragment mMePageFragment ;
     @Override
     protected int getLayoutId() {
         return R.layout.activity_main;
@@ -27,17 +28,8 @@ public class MainActivity extends BaseActivity {
 
     @Override
     protected void initView() {
-//        headImageView = bindViewId(R.id.header_iv);
-//        ImgUtils.loadRound("http://a-ssl.duitang.com/uploads/item/201404/15/20140415192752_JGUFz.jpeg",
-//                headImageView);
 
-//        mHeartView = bindViewId(R.id.heart_view);
-//        mHeartView.loadIcon(R.mipmap.ic_launcher);
-//        mHeartView.setNum(9999);
-
-        homePageBtn = bindViewId(R.id.homepage_btn);
-        followPageBtn = bindViewId(R.id.followpage_btn);
-
+        mBottomNavigationBarView = bindViewId(R.id.BottomNavigationBar_View);
         // 默认显示第一个
         switchToHomePage();
 
@@ -50,17 +42,26 @@ public class MainActivity extends BaseActivity {
 
     @Override
     protected void initEvent() {
-        homePageBtn.setOnClickListener(new View.OnClickListener() {
+
+        mBottomNavigationBarView.setOnBottomNavigationBarListener(new BottomNavigationBarView.OnBottomNavigationBarListener() {
             @Override
-            public void onClick(View v) {
+            public void onHomePageItemClick() {
                 switchToHomePage();
             }
-        });
 
-        followPageBtn.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
+            public void onFollowPageItemClick() {
                 switchToFollowPage();
+            }
+
+            @Override
+            public void onMessagePageItemClick() {
+                switchToMessagePage();
+            }
+
+            @Override
+            public void onMePageItemClick() {
+                switchToMePage();
             }
         });
     }
@@ -81,6 +82,26 @@ public class MainActivity extends BaseActivity {
             mFollowPageFragment = mFollowPageFragment.newInstance();
         FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
         ft.replace(R.id.frame_layout,mFollowPageFragment);
+        ft.commit();
+        // 延迟构造
+        getSupportFragmentManager().executePendingTransactions();
+    }
+
+    private void switchToMessagePage(){
+        if(mMessagePageFragment == null)
+            mMessagePageFragment = mMessagePageFragment.newInstance();
+        FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+        ft.replace(R.id.frame_layout,mMessagePageFragment);
+        ft.commit();
+        // 延迟构造
+        getSupportFragmentManager().executePendingTransactions();
+    }
+
+    private void switchToMePage(){
+        if(mMePageFragment == null)
+            mMePageFragment = mMePageFragment.newInstance();
+        FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+        ft.replace(R.id.frame_layout,mMePageFragment);
         ft.commit();
         // 延迟构造
         getSupportFragmentManager().executePendingTransactions();
