@@ -1,9 +1,11 @@
 package com.jqh.duanvideo.fragment;
 
+import android.content.Context;
 import android.os.Bundle;
 
 import com.jqh.duanvideo.R;
 import com.jqh.duanvideo.base.BaseFragment;
+import com.jqh.duanvideo.utils.LogUtils;
 
 /**
  * Created by jiangqianghua on 18/4/10.
@@ -34,4 +36,11 @@ public class NearbyPageFragment extends BaseFragment {
     protected void initData() {
 
     }
+
+    @Override
+    public void onHiddenChanged(boolean hidden) {
+        super.onHiddenChanged(hidden);
+        LogUtils.d("onHiddenChanged");
+    }
+
 }

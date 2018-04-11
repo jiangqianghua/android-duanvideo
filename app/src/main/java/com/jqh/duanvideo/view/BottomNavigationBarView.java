@@ -4,6 +4,7 @@ import android.content.Context;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.RelativeLayout;
 
 import com.jqh.duanvideo.R;
@@ -19,6 +20,7 @@ public class BottomNavigationBarView extends RelativeLayout{
     private BottomNavigationItemView mFollowPageItem ;
     private BottomNavigationItemView mMessagePageItem ;
     private BottomNavigationItemView mMePageItem ;
+    private ImageView mStartrecodeItem ;
 
     private Context mContext ;
 
@@ -33,6 +35,7 @@ public class BottomNavigationBarView extends RelativeLayout{
         void onFollowPageItemClick();
         void onMessagePageItemClick();
         void onMePageItemClick();
+        void onRecodeCameraItemClick();
     }
     public BottomNavigationBarView(Context context) {
         super(context);
@@ -56,7 +59,7 @@ public class BottomNavigationBarView extends RelativeLayout{
         mFollowPageItem = ViewUtils.bindViewId(this,R.id.followpage_view);
         mMessagePageItem = ViewUtils.bindViewId(this,R.id.messagepage_view);
         mMePageItem = ViewUtils.bindViewId(this,R.id.mepage_view);
-
+        mStartrecodeItem = ViewUtils.bindViewId(this,R.id.startrecode_imageview);
         initEvent();
     }
 
@@ -98,6 +101,14 @@ public class BottomNavigationBarView extends RelativeLayout{
                 mMePageItem.setSelected(true);
                 if(mOnBottomNavigationBarListener != null)
                     mOnBottomNavigationBarListener.onMePageItemClick();
+            }
+        });
+
+        mStartrecodeItem.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(mOnBottomNavigationBarListener != null)
+                    mOnBottomNavigationBarListener.onRecodeCameraItemClick();
             }
         });
     }
