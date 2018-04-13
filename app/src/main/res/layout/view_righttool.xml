@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:jqh="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical" android:layout_width="60dp"
+    android:layout_height="300dp">
+
+    <ImageView
+        android:id="@+id/avatar_iv"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_gravity="center_horizontal"
+        />
+
+    <com.jqh.duanvideo.view.IconNumView
+        android:id="@+id/like_iconnumview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        jqh:normal_icon="@mipmap/dislike"
+        jqh:selected_icon="@mipmap/like"
+        android:layout_marginTop="10dp"
+        android:layout_gravity="center_horizontal">
+    </com.jqh.duanvideo.view.IconNumView>
+
+    <com.jqh.duanvideo.view.IconNumView
+        android:id="@+id/comment_iconnumview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        jqh:normal_icon="@mipmap/talks"
+        jqh:selected_icon="@mipmap/talks"
+        android:layout_marginTop="10dp"
+        android:layout_gravity="center_horizontal">
+    </com.jqh.duanvideo.view.IconNumView>
+
+    <com.jqh.duanvideo.view.IconNumView
+        android:id="@+id/send_iconnumview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        jqh:normal_icon="@mipmap/send"
+        jqh:selected_icon="@mipmap/send"
+        android:layout_marginTop="10dp"
+        android:layout_gravity="center_horizontal"
+        >
+    </com.jqh.duanvideo.view.IconNumView>
+</LinearLayout>

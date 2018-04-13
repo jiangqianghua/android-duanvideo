@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/activity_border">
 
@@ -8,10 +10,19 @@
         android:id="@+id/pop_comment"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="评论"/>
+        android:text="评论"
+        android:visibility="gone"/>
     <Button
         android:id="@+id/pop_userinfo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="用户信息"/>
+        android:text="用户信息"
+        android:visibility="gone"/>
+
+    <com.jqh.duanvideo.viewpager.HorizonVerticalViewPager
+        android:id="@+id/view_pager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:isVertical="true">
+    </com.jqh.duanvideo.viewpager.HorizonVerticalViewPager>
 </LinearLayout>

@@ -14,4 +14,13 @@
         <attr name="selected_color" format="color"/>
         <attr name="unselected_color" format="color"/>
     </declare-styleable>
+
+    <declare-styleable name="MyViewPager">
+        <attr name="isVertical" format="boolean" />
+    </declare-styleable>
+
+    <declare-styleable name="IconNumView">
+        <attr name="normal_icon" format="reference" />
+        <attr name="selected_icon" format="reference" />
+    </declare-styleable>
 </resources>

@@ -1,6 +1,7 @@
 package com.jqh.duanvideo.view;
 
 import android.content.Context;
+import android.content.res.TypedArray;
 import android.text.Layout;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
@@ -21,6 +22,8 @@ public class IconNumView extends LinearLayout {
     private Context mContext ;
     private ImageView mIconImageView ;
     private TextView mNumTextView ;
+    private int normal_icon ;
+    private int selected_icon ;
     public IconNumView(Context context) {
         super(context);
         init(context);
@@ -33,6 +36,9 @@ public class IconNumView extends LinearLayout {
 
     public IconNumView(Context context, AttributeSet attrs) {
         super(context, attrs);
+        TypedArray attributes = context.obtainStyledAttributes(attrs,R.styleable.IconNumView);
+        normal_icon = attributes.getResourceId(R.styleable.IconNumView_normal_icon,0);
+        selected_icon = attributes.getResourceId(R.styleable.IconNumView_selected_icon,0);
         init(context);
     }
 
@@ -40,15 +46,24 @@ public class IconNumView extends LinearLayout {
         this.mContext = context ;
         LayoutInflater.from(context).inflate(R.layout.view_icon_num,this);
         mIconImageView = ViewUtils.bindViewId(this,R.id.icon_iv);
+        loadIcon(normal_icon);
         mNumTextView = ViewUtils.bindViewId(this,R.id.num_tv);
     }
 
     public void loadIcon(int resId){
-        ImgUtils.loadRound(resId,mIconImageView);
+        ImgUtils.load(resId,mIconImageView);
     }
 
     public void setNum(int num){
         mNumTextView.setText(num+"");
+    }
+
+    public void setNormal(){
+        loadIcon(normal_icon);
+    }
+
+    public void setSelected(){
+        loadIcon(selected_icon);
     }
 
 

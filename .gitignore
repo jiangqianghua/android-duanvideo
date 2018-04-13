@@ -7,3 +7,6 @@
 /build
 /captures
 .externalNativeBuild
+/jmedia/build
+/jmedia/src/main/libs
+/jmedia/src/main/obj

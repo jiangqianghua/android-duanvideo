@@ -52,7 +52,8 @@ public class HomePageTopView extends RelativeLayout {
         initEvent();
 
         mRecommendTextView.setTextColor(mContext.getResources().getColor(R.color.white));
-        mNearbyTextView.setTextColor(mContext.getResources().getColor(R.color.black));
+        //mNearbyTextView.setTextColor(mContext.getResources().getColor(R.color.black));
+        mNearbyTextView.setTextColor(0xffcccccc);
     }
 
     private void initEvent(){
@@ -64,7 +65,8 @@ public class HomePageTopView extends RelativeLayout {
 //                    mRecommendTextView.setTextColor(0xffffffff);
 //                    mNearbyTextView.setTextColor(0xff000000);
                     mRecommendTextView.setTextColor(mContext.getResources().getColor(R.color.white));
-                    mNearbyTextView.setTextColor(mContext.getResources().getColor(R.color.black));
+                    //mNearbyTextView.setTextColor(mContext.getResources().getColor(R.color.black));
+                    mNearbyTextView.setTextColor(0xffcccccc);
                 }
             }
         });
@@ -77,7 +79,8 @@ public class HomePageTopView extends RelativeLayout {
 //                    mNearbyTextView.setTextColor(0xffffffff);
 //                    mRecommendTextView.setTextColor(0xff000000);
 
-                    mRecommendTextView.setTextColor(mContext.getResources().getColor(R.color.black));
+                    //mRecommendTextView.setTextColor(mContext.getResources().getColor(R.color.black));
+                    mRecommendTextView.setTextColor(0xffcccccc);
                     mNearbyTextView.setTextColor(mContext.getResources().getColor(R.color.white));
                 }
             }
