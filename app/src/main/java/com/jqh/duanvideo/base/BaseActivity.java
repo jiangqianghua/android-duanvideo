@@ -30,20 +30,20 @@ public abstract class BaseActivity extends AppCompatActivity {
     protected abstract void initView();
     protected abstract void initData();
     protected abstract void initEvent();
-
     protected <T extends View> T bindViewId(int resId)
     {
         return (T)findViewById(resId);
     }
 
-    protected void setSupportActionBar()
+    protected void setSupportActionBar(int id)
     {
-//        mToolBar = bindViewId(R.id.title_bar);
-//        if(mToolBar != null)
-//        {
-//            setSupportActionBar(mToolBar);
-//        }
+        mToolBar = bindViewId(id);
+        if(mToolBar != null)
+        {
+            setSupportActionBar(mToolBar);
+        }
     }
+
 
     /**
      * 是否支持返回箭头

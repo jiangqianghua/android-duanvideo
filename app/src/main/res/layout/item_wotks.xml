@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ff000000"
+    android:id="@+id/container">
+    <ImageView
+        android:id="@+id/cover_iv"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginLeft="10dp">
+        <ImageView
+            android:id="@+id/typeicon_iv"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:src="@mipmap/dislike"/>
+        <TextView
+            android:id="@+id/typenum_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/white"
+            android:textSize="12sp"
+            android:layout_marginLeft="5dp"/>
+    </LinearLayout>
+
+
+
+</RelativeLayout>

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="#ff000000">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp">
+        
+        <RelativeLayout
+            android:id="@+id/works_container_rl"
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:layout_weight="1"
+            android:background="@color/indiraction_bg_select"
+            >
+            <TextView
+                android:id="@+id/works_num_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="作品 10"
+                android:layout_centerInParent="true"
+                android:textSize="20sp"
+                android:textColor="@color/indiraction_text_select"/>
+        </RelativeLayout>
+        <RelativeLayout
+            android:id="@+id/like_container_rl"
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:layout_weight="1"
+            android:background="@color/indiraction_bg_unselect"
+            >
+            <TextView
+                android:id="@+id/like_num_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="喜欢 100"
+                android:layout_centerInParent="true"
+                android:textSize="20sp"
+                android:textColor="@color/indiraction_text_unselect"/>
+        </RelativeLayout>
+    </LinearLayout>
+</RelativeLayout>

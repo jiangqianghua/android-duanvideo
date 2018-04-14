@@ -10,4 +10,8 @@
     <color name="grey_medium">#999999</color>
     <color name="bottomtoolbar_black">#ff000000</color>
     <color name="bottomtoolbar_nono">#00000000</color>
+    <color name="indiraction_text_select">#ff000000</color>
+    <color name="indiraction_bg_select">#ffffff00</color>
+    <color name="indiraction_text_unselect">#ffcccccc</color>
+    <color name="indiraction_bg_unselect">#ff000000</color>
 </resources>

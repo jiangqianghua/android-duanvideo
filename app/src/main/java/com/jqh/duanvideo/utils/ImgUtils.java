@@ -11,6 +11,7 @@ import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.jqh.duanvideo.AppManager;
 import com.jqh.duanvideo.R;
 
+import jp.wasabeef.glide.transformations.BlurTransformation;
 import jp.wasabeef.glide.transformations.CropCircleTransformation;
 
 /**
@@ -45,6 +46,19 @@ public class ImgUtils {
         Glide.with(AppManager.getContext())
                 .load(resId)
                 .bitmapTransform(new CropCircleTransformation(AppManager.getContext()))
+                .into(targetView);
+    }
+
+    /**
+     * 毛玻璃效果
+     * @param url
+     * @param targetView
+     * @param radius
+     */
+    public static void loadBlur(String url , ImageView targetView,int radius){
+        Glide.with(AppManager.getContext())
+                .load(url)
+                .bitmapTransform(new BlurTransformation(AppManager.getContext(),radius))
                 .into(targetView);
     }
 
