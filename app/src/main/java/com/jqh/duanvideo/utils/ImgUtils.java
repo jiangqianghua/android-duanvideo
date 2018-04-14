@@ -90,7 +90,7 @@ public class ImgUtils {
      */
     public static Point getVerPostSize(Context context, int columns){
         int width = getScreenWidthPixel(context)/columns;
-        width = width - (int)context.getResources().getDimension(R.dimen.dimen_6dp);
+        width = width - (int)context.getResources().getDimension(R.dimen.dimen_1dp);
         int height = Math.round((float)width/VER_POSTER_RATO);
         Point point = new Point();
         point.x = width ;

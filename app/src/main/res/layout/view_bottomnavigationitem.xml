@@ -8,14 +8,14 @@
         android:id="@+id/item_name_tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="20dp"
+        android:textSize="18dp"
         android:text="@string/homepage"
         android:layout_gravity="center_horizontal"
         />
 
     <View
         android:id="@+id/line_view"
-        android:layout_width="40dp"
+        android:layout_width="35dp"
         android:layout_height="2dp"
         android:background="#ffffff"
         android:layout_marginTop="10dp"

@@ -3,7 +3,9 @@
     xmlns:jqh="http://schemas.android.com/apk/res-auto"
     android:orientation="horizontal"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:gravity="bottom"
+    android:background="@drawable/view_bottomnavbar_boder">
 
     <com.jqh.duanvideo.view.BottomNavigationItemView
         android:id="@+id/homepage_view"
@@ -28,8 +30,10 @@
         android:id="@+id/startrecode_imageview"
         android:layout_width="0dp"
         android:layout_weight = "1"
-        android:layout_height="50dp"
-        android:background="@mipmap/ic_launcher"/>
+        android:layout_height="40dp"
+        android:layout_marginTop="-25dp"
+        android:src="@mipmap/release"
+        />
 
     <com.jqh.duanvideo.view.BottomNavigationItemView
         android:id="@+id/messagepage_view"

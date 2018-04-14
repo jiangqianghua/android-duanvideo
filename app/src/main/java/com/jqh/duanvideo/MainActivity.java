@@ -12,13 +12,14 @@ import com.jqh.duanvideo.fragment.FollowPageFragment;
 import com.jqh.duanvideo.fragment.HomePageFragment;
 import com.jqh.duanvideo.fragment.MePageFragment;
 import com.jqh.duanvideo.fragment.MessagePageFragment;
+import com.jqh.duanvideo.inter.ActivityInterface;
 import com.jqh.duanvideo.view.BottomNavigationBarView;
 import com.jqh.duanvideo.base.BaseActivity;
 import com.jqh.duanvideo.widget.RecodCameraActivity;
 
 import java.util.ArrayList;
 
-public class MainActivity extends BaseActivity {
+public class MainActivity extends BaseActivity implements ActivityInterface {
 
 
     private BottomNavigationBarView mBottomNavigationBarView ;
@@ -41,6 +42,7 @@ public class MainActivity extends BaseActivity {
     protected void initView() {
 
         mBottomNavigationBarView = bindViewId(R.id.BottomNavigationBar_View);
+        setBottomBarColor(R.color.bottomtoolbar_nono);
 
     }
 
@@ -144,5 +146,10 @@ public class MainActivity extends BaseActivity {
 
         }
     }
+
+    public void setBottomBarColor(int color){
+        mBottomNavigationBarView.setBackgroundColor(getResources().getColor(color));
+    }
+
 
 }

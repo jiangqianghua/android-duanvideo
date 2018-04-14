@@ -21,7 +21,8 @@
         android:layout_width="60dp"
         android:layout_height="300dp"
         android:layout_alignParentRight="true"
-        android:layout_centerVertical="true">
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="100dp">
     </com.jqh.duanvideo.view.RightToolView>
 
 </RelativeLayout>

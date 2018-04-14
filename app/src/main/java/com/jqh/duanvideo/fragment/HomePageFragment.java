@@ -1,5 +1,6 @@
 package com.jqh.duanvideo.fragment;
 
+import android.app.Activity;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -8,6 +9,7 @@ import android.support.v4.app.FragmentTransaction;
 
 import com.jqh.duanvideo.R;
 import com.jqh.duanvideo.base.BaseFragment;
+import com.jqh.duanvideo.inter.ActivityInterface;
 import com.jqh.duanvideo.utils.LogUtils;
 import com.jqh.duanvideo.utils.ViewUtils;
 import com.jqh.duanvideo.view.HomePageTopView;
@@ -28,7 +30,7 @@ public class HomePageFragment extends BaseFragment {
 
     private String[] mFragmentTagList = {"RecommendPageFragment", "NearbyPageFragment"};
     private FragmentManager mFm;
-
+    private ActivityInterface mActivityInterface ;
     private ArrayList<Fragment> mFragmentList = new ArrayList<Fragment>();
     @Override
     protected void initView() {
@@ -41,11 +43,13 @@ public class HomePageFragment extends BaseFragment {
             @Override
             public void onRecommendClick() {
                 switchFragment(mFragmentList.get(0),mFragmentTagList[0]);
+                mActivityInterface.setBottomBarColor(R.color.bottomtoolbar_nono);
             }
 
             @Override
             public void onNearbyClick() {
                 switchFragment(mFragmentList.get(1),mFragmentTagList[1]);
+                mActivityInterface.setBottomBarColor(R.color.bottomtoolbar_black);
             }
         });
     }
@@ -59,6 +63,12 @@ public class HomePageFragment extends BaseFragment {
     @Override
     protected int getLayoutId() {
         return R.layout.fragment_homepage;
+    }
+
+    @Override
+    public void onAttach(Activity activity) {
+        super.onAttach(activity);
+        mActivityInterface = (ActivityInterface)activity;
     }
 
     @Override

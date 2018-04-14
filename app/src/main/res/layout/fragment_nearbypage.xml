@@ -1,8 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#f0f0"
-    >
+    android:background="#ff000000"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
-</LinearLayout>
+    <com.jqh.duanvideo.view.pullloadview.PullLoadRecyclerView
+        android:id="@+id/pullLoadRecyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scrollbars="none"
+        android:padding="4dp"
+        android:overScrollMode="never"
+        >
+
+    </com.jqh.duanvideo.view.pullloadview.PullLoadRecyclerView>
+</FrameLayout>

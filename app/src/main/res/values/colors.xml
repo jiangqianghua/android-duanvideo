@@ -7,4 +7,7 @@
     <color name="black">#000000</color>
     <color name="bottomitemselected">#ffffff</color>
     <color name="bottomitemunselected">#cccccc</color>
+    <color name="grey_medium">#999999</color>
+    <color name="bottomtoolbar_black">#ff000000</color>
+    <color name="bottomtoolbar_nono">#00000000</color>
 </resources>

@@ -51,9 +51,7 @@ public class HomePageTopView extends RelativeLayout {
         mNearbyTextView = ViewUtils.bindViewId(this,R.id.nearby_tv);
         initEvent();
 
-        mRecommendTextView.setTextColor(mContext.getResources().getColor(R.color.white));
-        //mNearbyTextView.setTextColor(mContext.getResources().getColor(R.color.black));
-        mNearbyTextView.setTextColor(0xffcccccc);
+        switchToRecommend();
     }
 
     private void initEvent(){
@@ -62,11 +60,7 @@ public class HomePageTopView extends RelativeLayout {
             public void onClick(View v) {
                 if(mOnHomePageTopClickListener != null) {
                     mOnHomePageTopClickListener.onRecommendClick();
-//                    mRecommendTextView.setTextColor(0xffffffff);
-//                    mNearbyTextView.setTextColor(0xff000000);
-                    mRecommendTextView.setTextColor(mContext.getResources().getColor(R.color.white));
-                    //mNearbyTextView.setTextColor(mContext.getResources().getColor(R.color.black));
-                    mNearbyTextView.setTextColor(0xffcccccc);
+                    switchToRecommend();
                 }
             }
         });
@@ -76,15 +70,24 @@ public class HomePageTopView extends RelativeLayout {
             public void onClick(View v) {
                 if(mOnHomePageTopClickListener != null) {
                     mOnHomePageTopClickListener.onNearbyClick();
-//                    mNearbyTextView.setTextColor(0xffffffff);
-//                    mRecommendTextView.setTextColor(0xff000000);
-
-                    //mRecommendTextView.setTextColor(mContext.getResources().getColor(R.color.black));
-                    mRecommendTextView.setTextColor(0xffcccccc);
-                    mNearbyTextView.setTextColor(mContext.getResources().getColor(R.color.white));
+                    switchToNearby();
                 }
             }
         });
+    }
+
+    private void switchToRecommend(){
+        mRecommendTextView.setTextColor(mContext.getResources().getColor(R.color.white));
+        mNearbyTextView.setTextColor(0xffcccccc);
+        mRecommendTextView.setTextSize(25);
+        mNearbyTextView.setTextSize(20);
+    }
+
+    private void switchToNearby(){
+        mRecommendTextView.setTextColor(0xffcccccc);
+        mNearbyTextView.setTextColor(mContext.getResources().getColor(R.color.white));
+        mRecommendTextView.setTextSize(20);
+        mNearbyTextView.setTextSize(25);
     }
 
 }
