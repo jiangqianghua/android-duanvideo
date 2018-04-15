@@ -12,7 +12,6 @@ import com.jqh.duanvideo.base.BaseActivity;
 
 public class RecodCameraActivity extends BaseActivity {
 
-    private Button exitbtn ;
     @Override
     protected int getLayoutId() {
         return R.layout.activity_recodcamera;
@@ -20,7 +19,7 @@ public class RecodCameraActivity extends BaseActivity {
 
     @Override
     protected void initView() {
-        exitbtn = bindViewId(R.id.exitbtn);
+
     }
 
     @Override
@@ -30,12 +29,7 @@ public class RecodCameraActivity extends BaseActivity {
 
     @Override
     protected void initEvent() {
-        exitbtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                RecodCameraActivity.this.finish();
-            }
-        });
+
     }
 
     @Override
