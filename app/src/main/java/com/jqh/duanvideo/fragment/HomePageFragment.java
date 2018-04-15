@@ -32,6 +32,7 @@ public class HomePageFragment extends BaseFragment {
     private FragmentManager mFm;
     private ActivityInterface mActivityInterface ;
     private ArrayList<Fragment> mFragmentList = new ArrayList<Fragment>();
+
     @Override
     protected void initView() {
         mHomePageTopView = bindViewId(R.id.homepageTop_view);
@@ -109,6 +110,15 @@ public class HomePageFragment extends BaseFragment {
     public void onHiddenChanged(boolean hidden) {
         super.onHiddenChanged(hidden);
         LogUtils.d("onHiddenChanged");
+        if( !hidden ){
+            if(mCurrentFragmen instanceof RecommendPageFragment){
+                mActivityInterface.setBottomBarColor(R.color.bottomtoolbar_nono);
+            }
+            else
+            {
+                mActivityInterface.setBottomBarColor(R.color.bottomtoolbar_black);
+            }
+        }
     }
 
 

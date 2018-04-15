@@ -7,6 +7,7 @@ import android.graphics.Bitmap;
 import android.media.MediaPlayer;
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.VideoView;
@@ -14,6 +15,7 @@ import android.widget.VideoView;
 import com.jqh.duanvideo.R;
 import com.jqh.duanvideo.base.BaseFragment;
 import com.jqh.duanvideo.dialog.CommentDialog;
+import com.jqh.duanvideo.model.RecommendModule;
 import com.jqh.duanvideo.utils.LogUtils;
 import com.jqh.duanvideo.view.JVideoView;
 import com.jqh.duanvideo.view.RightToolView;
@@ -27,25 +29,60 @@ public class RecommendPageItemFragment extends BaseFragment {
 
     private boolean isCreate = false ;
     private JVideoView mVideoView ;
-    private String mUrl;
     private RightToolView mRightToolView ;
     private Activity mAttachActivity ;
-    public static RecommendPageItemFragment newInstance(String url) {
-        
+
+
+
+    private int userId ;
+    private int worksId;
+    private String url ;
+    private String avater ;
+    private int commentsNum ;
+    private int sendsNum;
+    private int likesNum ;
+    public static RecommendPageItemFragment newInstance(RecommendModule recommendModule) {
+
         Bundle args = new Bundle();
-        args.putString("url",url);
+        args.putInt("userId",recommendModule.getUserId());
+        args.putInt("worksId",recommendModule.getWorksId());
+        args.putString("url",recommendModule.getmMediaUlr());
+        args.putString("avater",recommendModule.getAvater());
+        args.putInt("comment",recommendModule.getComentNum());
+        args.putInt("like",recommendModule.getLikeNum());
+        args.putInt("send",recommendModule.getSendNum());
         RecommendPageItemFragment fragment = new RecommendPageItemFragment();
         fragment.setArguments(args);
         return fragment;
     }
+
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+
+        Bundle bundle = getArguments();
+        userId = bundle.getInt("userId");
+        worksId = bundle.getInt("worksId");
+        url = bundle.getString("url");
+        avater = bundle.getString("avater");
+        commentsNum = bundle.getInt("comment");
+        sendsNum = bundle.getInt("send");
+        likesNum = bundle.getInt("like");
+
+    }
+
     @Override
     protected void initView() {
 
         mVideoView = bindViewId(R.id.video_view);
         mRightToolView = bindViewId(R.id.tools_view);
-        Bundle bundle = getArguments();
-        mUrl = bundle.getString("url");
         isCreate = true ;
+
+        mRightToolView.setCommentNum(commentsNum);
+        mRightToolView.setmLikeNum(likesNum);
+        mRightToolView.setSendNum(sendsNum);
+        mRightToolView.loadAvater(avater);
+
     }
 
     @Override
@@ -67,8 +104,12 @@ public class RecommendPageItemFragment extends BaseFragment {
     private void initEvent(){
         mRightToolView.setOnRightToolItemClickListener(new RightToolView.OnRightToolItemClickListener() {
             @Override
-            public void onAvatarClick() {
+            public void onAvatarClick(int userId,String avater) {
                 Intent intent = new Intent(mAttachActivity,UserInfoActivity.class);
+                Bundle bundle = new Bundle();
+                bundle.putInt("userId",userId);
+                bundle.putString("avater",avater);
+                intent.putExtras(bundle);
                 mAttachActivity.startActivity(intent);
                 mAttachActivity.overridePendingTransition(R.anim.right_entry,0);
             }
@@ -110,7 +151,7 @@ public class RecommendPageItemFragment extends BaseFragment {
 
         if(isCreate && isVisibleToUser){
             try {
-                mVideoView.start(mUrl);
+                mVideoView.start(url);
             }catch (Exception e){
                 e.printStackTrace();
             }

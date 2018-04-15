@@ -22,6 +22,9 @@ public class RightToolView extends RelativeLayout {
     private IconNumView mCommentIconNumView ;
     private IconNumView mSendIconNumView ;
 
+    private int userId;
+    private String avater ;
+
     private OnRightToolItemClickListener mOnRightToolItemClickListener;
 
     public void setOnRightToolItemClickListener(OnRightToolItemClickListener mOnRightToolItemClick) {
@@ -29,7 +32,7 @@ public class RightToolView extends RelativeLayout {
     }
 
     public interface  OnRightToolItemClickListener{
-        void onAvatarClick();
+        void onAvatarClick(int userId,String avater);
         void onLikeClick();
         void onCommentClick();
         void onSendClick();
@@ -56,17 +59,17 @@ public class RightToolView extends RelativeLayout {
         mLikeIconNumView = ViewUtils.bindViewId(this,R.id.like_iconnumview);
         mCommentIconNumView = ViewUtils.bindViewId(this,R.id.comment_iconnumview);
         mSendIconNumView = ViewUtils.bindViewId(this,R.id.send_iconnumview);
-
-        ImgUtils.loadRound("http://www.qqzhi.com/uploadpic/2014-09-23/000247589.jpg",mAvatarImageView);
         initEvent();
     }
+
+
 
     private void initEvent(){
         mAvatarImageView.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
                 if(mOnRightToolItemClickListener != null){
-                    mOnRightToolItemClickListener.onAvatarClick();
+                    mOnRightToolItemClickListener.onAvatarClick(userId,avater);
                 }
             }
         });
@@ -100,6 +103,26 @@ public class RightToolView extends RelativeLayout {
 
     }
 
+    public void setSendNum(int num){
+        mSendIconNumView.setNum(num);
+    }
+
+    public void setCommentNum(int num){
+        mCommentIconNumView.setNum(num);
+    }
+
+    public void setmLikeNum(int num){
+        mLikeIconNumView.setNum(num);
+    }
+
+    public void setUserId(int userId){
+        this.userId = userId;
+    }
+    //"http://www.qqzhi.com/uploadpic/2014-09-23/000247589.jpg"
+    public void loadAvater(String url){
+        avater = url ;
+        ImgUtils.loadRound(url,mAvatarImageView);
+    }
 
 
 }

@@ -1,5 +1,6 @@
 package com.jqh.duanvideo.widget;
 
+import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
@@ -34,6 +35,8 @@ public class UserInfoActivity extends BaseActivity {
     private final static String[] mFragmentTagList = {"mWorksListFragment", "mLikeListFragment"};
     private FragmentManager mFm;
 
+    private String avater ;
+    private int userId ;
     @Override
     protected int getLayoutId() {
         return R.layout.activity_userinfo;
@@ -41,6 +44,9 @@ public class UserInfoActivity extends BaseActivity {
 
     @Override
     protected void initView() {
+        Bundle bundle = getIntent().getExtras();
+        avater = bundle.getString("avater");
+
         //setSupportActionBar(R.id.userinfo_toolbar);
         //setTitle("用户信息");
         //setSupportArrowActionBar(true);
@@ -54,8 +60,8 @@ public class UserInfoActivity extends BaseActivity {
 
     @Override
     protected void initData() {
-        ImgUtils.loadBlur("http://www.qqzhi.com/uploadpic/2014-09-23/000247589.jpg",mBackGroudImageView,60);
-        ImgUtils.loadRound("http://www.qqzhi.com/uploadpic/2014-09-23/000247589.jpg",mAvaterImageView);
+        ImgUtils.loadBlur(avater,mBackGroudImageView,60);
+        ImgUtils.loadRound(avater,mAvaterImageView);
         mWorksListFragment = WorksListFragment.newInstance();
         mLikeListFragment = WorksListFragment.newInstance();
         mFragmentList.add(mWorksListFragment);

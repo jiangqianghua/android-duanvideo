@@ -45,4 +45,15 @@
         <item name="android:windowExitAnimation">@anim/comment_dialog_out</item>
     </style>
 
+    <!-- android:shadowDx 阴影的水平偏移量  即往右移的距离 -->
+    <!-- android:shadowDy 阴影的垂直偏移量  即往下移的距离-->
+    <!-- android:shadowColor 阴影颜色 -->
+    <!-- android:shadowRadius 阴影的范围  即阴影透明和扩散的程度-->
+    <style name="textViewStyle">
+        <item name="android:textStyle">bold</item>
+        <item name="android:shadowColor">#ff0000</item>
+        <item name="android:shadowDx">50</item>
+        <item name="android:shadowDy">2</item>
+        <item name="android:shadowRadius">1</item>
+    </style>
 </resources>

@@ -31,6 +31,8 @@ public abstract class BaseDialog {
 
     protected abstract void setWindowAttr();
 
+    protected abstract void initData();
+
     //构造方法 来实现 最基本的对话框
     public BaseDialog(Context context) {
         this.context = context;
@@ -46,6 +48,8 @@ public abstract class BaseDialog {
        // getView().setLayoutParams(new FrameLayout.LayoutParams((int) (display.getWidth() * 1), LinearLayout.LayoutParams.WRAP_CONTENT));
         dialog.setContentView(getView());
         setWindowAttr();
+
+        initData();
     }
 
     /** * Dialog 的基础方法，
