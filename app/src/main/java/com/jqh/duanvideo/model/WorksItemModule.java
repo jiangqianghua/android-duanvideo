@@ -6,6 +6,8 @@ package com.jqh.duanvideo.model;
 
 public class WorksItemModule {
 
+    private int worksId ;
+    private int userId ;
     private String cover ;
     private String worksName ;
 
@@ -17,6 +19,7 @@ public class WorksItemModule {
 
     private int likeNum ;
 
+    private String publishDate;
     public String getCover() {
         return cover;
     }
@@ -63,5 +66,13 @@ public class WorksItemModule {
 
     public void setLikeNum(int likeNum) {
         this.likeNum = likeNum;
+    }
+
+    public String getPublishDate() {
+        return publishDate;
+    }
+
+    public void setPublishDate(String publishDate) {
+        this.publishDate = publishDate;
     }
 }

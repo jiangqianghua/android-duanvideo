@@ -51,9 +51,9 @@
     <!-- android:shadowRadius 阴影的范围  即阴影透明和扩散的程度-->
     <style name="textViewStyle">
         <item name="android:textStyle">bold</item>
-        <item name="android:shadowColor">#ff0000</item>
-        <item name="android:shadowDx">50</item>
-        <item name="android:shadowDy">2</item>
+        <item name="android:shadowColor">#ff000000</item>
+        <item name="android:shadowDx">1</item>
+        <item name="android:shadowDy">1</item>
         <item name="android:shadowRadius">1</item>
     </style>
 </resources>

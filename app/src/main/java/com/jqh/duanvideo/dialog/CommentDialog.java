@@ -130,7 +130,7 @@ public class CommentDialog extends BaseDialog {
 
         public CommentAdapter(Context context, List<CommentModule> datas, int layoutId) {
             super(context, datas, layoutId);
-            this.mContext = mContext;
+            this.mContext = context;
         }
 
         @Override

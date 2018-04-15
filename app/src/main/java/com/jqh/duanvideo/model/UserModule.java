@@ -16,6 +16,7 @@ public class UserModule {
     private int fansNum;    // 粉丝睡昂
     private int worksNum ;  // 作品数量
     private int likeNum ;   // 喜欢的数量
+    private String avater ;// 头像
 
     public String getId() {
         return id;
@@ -95,5 +96,13 @@ public class UserModule {
 
     public void setLikeNum(int likeNum) {
         this.likeNum = likeNum;
+    }
+
+    public String getAvater() {
+        return avater;
+    }
+
+    public void setAvater(String avater) {
+        this.avater = avater;
     }
 }
