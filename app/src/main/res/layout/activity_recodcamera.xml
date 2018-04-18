@@ -3,9 +3,13 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <com.jqh.duanvideo.view.CameraView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
+    <!--<com.jqh.duanvideo.view.CameraView-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="match_parent">-->
 
-    </com.jqh.duanvideo.view.CameraView>
+    <!--</com.jqh.duanvideo.view.CameraView>-->
+    <RelativeLayout
+        android:id="@+id/camera_container_rl"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"></RelativeLayout>
 </LinearLayout>

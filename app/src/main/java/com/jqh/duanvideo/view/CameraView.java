@@ -51,7 +51,7 @@ public class CameraView extends BaseLayout {
     @Override
     protected void initView() {
         mSurfaceDraw = new SurfaceDraw();
-        final CameraTextureView cameraTextureView = bindViewId(R.id.cameraTexture_view);
+       // final CameraTextureView cameraTextureView = bindViewId(R.id.cameraTexture_view);
 
         gSurfaceTexture =new SurfaceTexture(MAGIC_TEXTURE_ID);
         mSurfaceView = bindViewId(R.id.surface_view);
@@ -75,7 +75,7 @@ public class CameraView extends BaseLayout {
                     }
                 });
                 try {
-                    mCamera.setPreviewTexture(cameraTextureView._getSurfaceTexture());
+                    mCamera.setPreviewTexture(gSurfaceTexture);
                 }catch (Exception e){
                     e.printStackTrace();
                 }

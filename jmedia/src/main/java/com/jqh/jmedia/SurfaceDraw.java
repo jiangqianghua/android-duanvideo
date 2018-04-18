@@ -63,7 +63,7 @@ public class SurfaceDraw {
 
             byteBuffer = ByteBuffer.wrap(bytes);
 
-            bmpOriginal = Bitmap.createBitmap(width, height,
+            bmpOriginal = Bitmap.createBitmap(width*2, height*2,
                     Bitmap.Config.RGB_565);
             bmpOriginal.copyPixelsFromBuffer(byteBuffer);
             if (matrix == null) {
