@@ -23,4 +23,11 @@
         <attr name="normal_icon" format="reference" />
         <attr name="selected_icon" format="reference" />
     </declare-styleable>
+
+    <declare-styleable name="RecodBtnView">
+        <attr name="tb_text" format="string|reference" />
+        <attr name="tb_text_color" format="color|reference" />
+        <attr name="tb_color" format="color|reference" />
+        <attr name="tb_anim_padding" format="dimension|reference" />
+    </declare-styleable>
 </resources>

@@ -9,6 +9,7 @@ import android.widget.RelativeLayout;
 import com.jqh.duanvideo.R;
 import com.jqh.duanvideo.base.BaseActivity;
 import com.jqh.duanvideo.view.GameDisplay;
+import com.jqh.duanvideo.view.RecodBtnView;
 import com.jqh.jmedia.JMediaPushStream;
 
 /**
@@ -25,6 +26,7 @@ public class RecodCameraActivity extends BaseActivity {
 
     private Button toMp4Btn ;
 
+    private RecodBtnView recodBtnView;
 
     @Override
     protected int getLayoutId() {
@@ -45,6 +47,8 @@ public class RecodCameraActivity extends BaseActivity {
         startBtn = bindViewId(R.id.startBtn);
         stopBtn = bindViewId(R.id.stopBtn);
         toMp4Btn = bindViewId(R.id.toMp4Btn);
+
+        recodBtnView = bindViewId(R.id.recodBtnView);
     }
 
     @Override
@@ -72,6 +76,13 @@ public class RecodCameraActivity extends BaseActivity {
             @Override
             public void onClick(View v) {
                 gameDisplay.toMp4();
+            }
+        });
+
+        recodBtnView.setOnHoldListener(new RecodBtnView.OnHoldListener() {
+            @Override
+            public void onHold(boolean hold) {
+                
             }
         });
     }
