@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
     android:layout_height="match_parent">
 
     <!--<com.jqh.duanvideo.view.CameraView-->
@@ -12,4 +12,30 @@
         android:id="@+id/camera_container_rl"
         android:layout_width="match_parent"
         android:layout_height="match_parent"></RelativeLayout>
-</LinearLayout>
+
+    <Button
+        android:id="@+id/startBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="start"
+        android:layout_marginTop="50px"
+        />
+
+    <Button
+        android:id="@+id/stopBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="stop"
+        android:layout_below="@id/startBtn"
+        android:layout_marginTop="50px"
+        />
+
+    <Button
+        android:id="@+id/toMp4Btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="stop"
+        android:layout_below="@id/stopBtn"
+        android:layout_marginTop="50px"
+        />
+</RelativeLayout>

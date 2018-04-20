@@ -9,6 +9,7 @@ import android.widget.RelativeLayout;
 import com.jqh.duanvideo.R;
 import com.jqh.duanvideo.base.BaseActivity;
 import com.jqh.duanvideo.view.GameDisplay;
+import com.jqh.jmedia.JMediaPushStream;
 
 /**
  * Created by jiangqianghua on 18/4/11.
@@ -17,7 +18,13 @@ import com.jqh.duanvideo.view.GameDisplay;
 public class RecodCameraActivity extends BaseActivity {
 
     private RelativeLayout camera_container_rl ;
-    private GameDisplay gameDisplay;;
+    private GameDisplay gameDisplay;
+
+    private Button startBtn ;
+    private Button stopBtn ;
+
+    private Button toMp4Btn ;
+
 
     @Override
     protected int getLayoutId() {
@@ -34,6 +41,10 @@ public class RecodCameraActivity extends BaseActivity {
         gameDisplay= new GameDisplay(this,dm.widthPixels,dm.heightPixels);
         camera_container_rl.addView(gameDisplay);
         gameDisplay.setVisibility(SurfaceView.VISIBLE);
+
+        startBtn = bindViewId(R.id.startBtn);
+        stopBtn = bindViewId(R.id.stopBtn);
+        toMp4Btn = bindViewId(R.id.toMp4Btn);
     }
 
     @Override
@@ -43,7 +54,26 @@ public class RecodCameraActivity extends BaseActivity {
 
     @Override
     protected void initEvent() {
+        startBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                gameDisplay.startRecod();
+            }
+        });
 
+        stopBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                gameDisplay.stopRecod();
+            }
+        });
+
+        toMp4Btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                gameDisplay.toMp4();
+            }
+        });
     }
 
     @Override

@@ -106,7 +106,7 @@ public class RecommendPageFragment extends BaseFragment {
 
         RecommendModule recommendModule1 = new RecommendModule();
         recommendModule1.setAvater("http://www.qqzhi.com/uploadpic/2014-09-23/000247589.jpg");
-        recommendModule1.setmMediaUlr("http://v.xdfkoo.com/126856/liveV421091964379749002_126856_0000.mp4");
+        recommendModule1.setmMediaUlr("/storage/emulated/0/a/outVideo.h264");//http://v.xdfkoo.com/126856/liveV421091964379749002_126856_0000.mp4
         recommendModule1.setLikeNum(100);
         recommendModule1.setSendNum(99);
         recommendModule1.setUserId(0);

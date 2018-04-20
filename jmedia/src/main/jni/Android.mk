@@ -55,7 +55,7 @@ include $(PREBUILT_STATIC_LIBRARY)
 include $(CLEAR_VARS)
 LOCAL_MODULE    := ffmpegjni
 LOCAL_CFLAGS    := -Werror
-LOCAL_SRC_FILES := sonic.c JPlayMediaJni.c
+LOCAL_SRC_FILES := sonic.c JPlayMediaJni.c PushAVStream.c
 LOCAL_C_INCLUDES += $(LOCAL_PATH)/include
 
 LOCAL_LDLIBS += -llog -ldl -lz -g
