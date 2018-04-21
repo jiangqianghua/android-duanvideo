@@ -33,7 +33,7 @@ public class RightToolView extends RelativeLayout {
 
     public interface  OnRightToolItemClickListener{
         void onAvatarClick(int userId,String avater);
-        void onLikeClick();
+        void onLikeClick(boolean islike);
         void onCommentClick();
         void onSendClick();
     }
@@ -78,7 +78,7 @@ public class RightToolView extends RelativeLayout {
             @Override
             public void onClick(View v) {
                 if(mOnRightToolItemClickListener != null){
-                    mOnRightToolItemClickListener.onLikeClick();
+                    mOnRightToolItemClickListener.onLikeClick(!mLikeIconNumView.isSelected());
                 }
             }
         });
@@ -124,5 +124,11 @@ public class RightToolView extends RelativeLayout {
         ImgUtils.loadRound(url,mAvatarImageView);
     }
 
-
+    public void updateLike(int num, boolean liked){
+        if(liked)
+            mLikeIconNumView.setSelected();
+        else
+            mLikeIconNumView.setNormal();
+        mLikeIconNumView.setNum(num);
+    }
 }

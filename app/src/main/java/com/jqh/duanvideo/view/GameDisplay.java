@@ -103,8 +103,8 @@ public class GameDisplay extends SurfaceView implements SurfaceHolder.Callback,
         Log.v(TAG, "GameDisplay surfaceChanged");
         parameters = gCamera.getParameters();
         List<Size> preSize = parameters.getSupportedPreviewSizes();
-        previewWidth = preSize.get(2).width;
-        previewHeight = preSize.get(2).height;
+        previewWidth = preSize.get(4).width;
+        previewHeight = preSize.get(4).height;
 //        for (int i = 1; i < preSize.size(); i++) {
 //            double similarity = Math
 //                    .abs(((double) preSize.get(i).height / screenHeight)

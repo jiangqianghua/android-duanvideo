@@ -7,6 +7,7 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 
 import com.google.gson.Gson;
+import com.mob.MobSDK;
 
 import okhttp3.OkHttpClient;
 
@@ -27,6 +28,7 @@ public class AppManager extends Application {
         mGson = new Gson();
         mOkHttpClient = new OkHttpClient();
         context = this ;
+        MobSDK.init(this);
 
     }
 

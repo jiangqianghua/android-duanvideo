@@ -7,4 +7,5 @@
     <string name="message">消息</string>
     <string name="me">我</string>
     <string name="load_more_text">正在加载新数据...</string>
+    <string name="share">短视频</string>
 </resources>

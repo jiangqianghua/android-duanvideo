@@ -17,6 +17,7 @@ import com.jqh.duanvideo.base.BaseFragment;
 import com.jqh.duanvideo.dialog.CommentDialog;
 import com.jqh.duanvideo.model.RecommendModule;
 import com.jqh.duanvideo.utils.LogUtils;
+import com.jqh.duanvideo.utils.ShareUtils;
 import com.jqh.duanvideo.view.JVideoView;
 import com.jqh.duanvideo.view.RightToolView;
 import com.jqh.duanvideo.widget.UserInfoActivity;
@@ -115,8 +116,15 @@ public class RecommendPageItemFragment extends BaseFragment {
             }
 
             @Override
-            public void onLikeClick() {
+            public void onLikeClick(boolean islike) {
 
+                if(islike) {
+                    likesNum++;
+                }
+                else{
+                    likesNum--;
+                }
+                mRightToolView.updateLike(likesNum, islike);
             }
 
             @Override
@@ -127,7 +135,7 @@ public class RecommendPageItemFragment extends BaseFragment {
 
             @Override
             public void onSendClick() {
-
+                ShareUtils.showShare(mAttachActivity);
             }
         });
     }

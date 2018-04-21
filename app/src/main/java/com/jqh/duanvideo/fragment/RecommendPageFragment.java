@@ -16,6 +16,7 @@ import com.jqh.duanvideo.dialog.CommentDialog;
 import com.jqh.duanvideo.model.RecommendModule;
 import com.jqh.duanvideo.utils.LogUtils;
 import com.jqh.duanvideo.viewpager.HorizonVerticalViewPager;
+import com.jqh.duanvideo.viewpager.VerticalViewPager;
 import com.jqh.duanvideo.widget.UserInfoActivity;
 
 import java.util.ArrayList;
@@ -30,7 +31,9 @@ public class RecommendPageFragment extends BaseFragment {
     private Button popUserinfoBtn;
     private Activity mAttachActivity ;
 
-    private HorizonVerticalViewPager mViewPager ;
+    //private HorizonVerticalViewPager mViewPager ;
+    private VerticalViewPager mViewPager ;
+
 
     private Fragment fm1,fm2,fm3,fm4,fm5,fm6,fm7,fm8;
     private FragmentPagerAdapter mAdapter ;
@@ -50,7 +53,6 @@ public class RecommendPageFragment extends BaseFragment {
         popCommentBtn = bindViewId(R.id.pop_comment);
         popUserinfoBtn = bindViewId(R.id.pop_userinfo);
         mViewPager = bindViewId(R.id.view_pager);
-
     }
 
     @Override

@@ -19,10 +19,14 @@
         android:text="用户信息"
         android:visibility="gone"/>
 
-    <com.jqh.duanvideo.viewpager.HorizonVerticalViewPager
+    <!--<com.jqh.duanvideo.viewpager.HorizonVerticalViewPager-->
+        <!--android:id="@+id/view_pager"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="match_parent"-->
+        <!--app:isVertical="true">-->
+    <!--</com.jqh.duanvideo.viewpager.HorizonVerticalViewPager>-->
+    <com.jqh.duanvideo.viewpager.VerticalViewPager
         android:id="@+id/view_pager"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:isVertical="true">
-    </com.jqh.duanvideo.viewpager.HorizonVerticalViewPager>
+        android:layout_height="match_parent"></com.jqh.duanvideo.viewpager.VerticalViewPager>
 </LinearLayout>

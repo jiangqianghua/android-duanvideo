@@ -24,6 +24,8 @@ public class IconNumView extends LinearLayout {
     private TextView mNumTextView ;
     private int normal_icon ;
     private int selected_icon ;
+
+    private boolean isNormal = true ;
     public IconNumView(Context context) {
         super(context);
         init(context);
@@ -59,12 +61,16 @@ public class IconNumView extends LinearLayout {
     }
 
     public void setNormal(){
+        isNormal = true ;
         loadIcon(normal_icon);
     }
 
     public void setSelected(){
+        isNormal = false;
         loadIcon(selected_icon);
     }
 
-
+    public boolean isSelected() {
+        return !isNormal;
+    }
 }
