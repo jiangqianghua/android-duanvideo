@@ -1,43 +1,33 @@
-package com.jqh.duanvideo.fragment;
+package com.jqh.duanvideo.widget;
 
-import android.app.Activity;
-import android.content.Context;
-import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 
 import com.jqh.duanvideo.R;
-import com.jqh.duanvideo.base.BaseFragment;
+import com.jqh.duanvideo.base.BaseActivity;
+import com.jqh.duanvideo.fragment.PlayVideoPageItemFragment;
 import com.jqh.duanvideo.model.VideoModule;
-import com.jqh.duanvideo.utils.LogUtils;
 import com.jqh.duanvideo.viewpager.VerticalViewPager;
 
 import java.util.ArrayList;
 
 /**
- * Created by jiangqianghua on 18/4/10.
+ * Created by jiangqianghua on 18/4/21.
  */
 
-public class RecommendPageFragment extends BaseFragment {
+public class PlayVideoListActivity extends BaseActivity {
 
-    private Activity mAttachActivity ;
-
-    //private HorizonVerticalViewPager mViewPager ;
     private VerticalViewPager mViewPager ;
 
 
     private Fragment fm1,fm2,fm3,fm4,fm5,fm6,fm7,fm8;
     private FragmentPagerAdapter mAdapter ;
     private ArrayList<Fragment> mDatas;
-    private int mCurPosition = 0 ;
-    public static RecommendPageFragment newInstance() {
-        
-        Bundle args = new Bundle();
-        
-        RecommendPageFragment fragment = new RecommendPageFragment();
-        fragment.setArguments(args);
-        return fragment;
+
+    @Override
+    protected int getLayoutId() {
+        return R.layout.activity_playvideolist;
     }
 
     @Override
@@ -46,40 +36,7 @@ public class RecommendPageFragment extends BaseFragment {
     }
 
     @Override
-    public void onAttach(Context context) {
-        super.onAttach(context);
-        mAttachActivity = (Activity)context;
-    }
-
-    private void initEvent(){
-
-        mViewPager.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
-            @Override
-            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
-                //LogUtils.d("position="+position + " positionOffset="+positionOffset + " positionOffsetPixels="+positionOffsetPixels);
-            }
-
-            @Override
-            public void onPageSelected(int position) {
-                setSelect(position);
-            }
-
-            @Override
-            public void onPageScrollStateChanged(int state) {
-
-            }
-        });
-
-    }
-
-    @Override
-    protected int getLayoutId() {
-        return R.layout.fragment_recommendpage;
-    }
-
-    @Override
     protected void initData() {
-
         VideoModule recommendModule1 = new VideoModule();
         recommendModule1.setAvater("http://www.qqzhi.com/uploadpic/2014-09-23/000247589.jpg");
         recommendModule1.setmMediaUlr("/storage/emulated/0/a/outVideo.h264");//http://v.xdfkoo.com/126856/liveV421091964379749002_126856_0000.mp4
@@ -162,7 +119,7 @@ public class RecommendPageFragment extends BaseFragment {
         mDatas.add(fm6);
         mDatas.add(fm7);
         mDatas.add(fm8);
-        mAdapter = new FragmentPagerAdapter(getChildFragmentManager()) {
+        mAdapter = new FragmentPagerAdapter(getSupportFragmentManager()) {
             @Override
             public Fragment getItem(int position) {
                 return mDatas.get(position);
@@ -174,14 +131,26 @@ public class RecommendPageFragment extends BaseFragment {
             }
         };
         mViewPager.setAdapter(mAdapter);
-       // setSelect(0);
-        initEvent();
     }
 
     @Override
-    public void onHiddenChanged(boolean hidden) {
-        super.onHiddenChanged(hidden);
-        LogUtils.d("onHiddenChanged");
+    protected void initEvent() {
+        mViewPager.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+            @Override
+            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+                //LogUtils.d("position="+position + " positionOffset="+positionOffset + " positionOffsetPixels="+positionOffsetPixels);
+            }
+
+            @Override
+            public void onPageSelected(int position) {
+                setSelect(position);
+            }
+
+            @Override
+            public void onPageScrollStateChanged(int state) {
+
+            }
+        });
     }
 
     private void setSelect(int index) {
@@ -189,7 +158,8 @@ public class RecommendPageFragment extends BaseFragment {
     }
 
     @Override
-    public void onStop() {
-        super.onStop();
+    public void finish() {
+        super.finish();
+        overridePendingTransition(0,R.anim.right_exit);
     }
 }

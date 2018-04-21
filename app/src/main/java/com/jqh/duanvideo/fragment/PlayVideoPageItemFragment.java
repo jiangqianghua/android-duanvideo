@@ -3,19 +3,13 @@ package com.jqh.duanvideo.fragment;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
-import android.graphics.Bitmap;
-import android.media.MediaPlayer;
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.webkit.WebView;
-import android.webkit.WebViewClient;
-import android.widget.VideoView;
 
 import com.jqh.duanvideo.R;
 import com.jqh.duanvideo.base.BaseFragment;
 import com.jqh.duanvideo.dialog.CommentDialog;
-import com.jqh.duanvideo.model.RecommendModule;
+import com.jqh.duanvideo.model.VideoModule;
 import com.jqh.duanvideo.utils.LogUtils;
 import com.jqh.duanvideo.utils.ShareUtils;
 import com.jqh.duanvideo.view.JVideoView;
@@ -25,7 +19,7 @@ import com.jqh.duanvideo.widget.UserInfoActivity;
 /**
  * Created by user on 2018/4/12.
  */
-public class RecommendPageItemFragment extends BaseFragment {
+public class PlayVideoPageItemFragment extends BaseFragment {
 
 
     private boolean isCreate = false ;
@@ -42,7 +36,7 @@ public class RecommendPageItemFragment extends BaseFragment {
     private int commentsNum ;
     private int sendsNum;
     private int likesNum ;
-    public static RecommendPageItemFragment newInstance(RecommendModule recommendModule) {
+    public static PlayVideoPageItemFragment newInstance(VideoModule recommendModule) {
 
         Bundle args = new Bundle();
         args.putInt("userId",recommendModule.getUserId());
@@ -52,7 +46,7 @@ public class RecommendPageItemFragment extends BaseFragment {
         args.putInt("comment",recommendModule.getComentNum());
         args.putInt("like",recommendModule.getLikeNum());
         args.putInt("send",recommendModule.getSendNum());
-        RecommendPageItemFragment fragment = new RecommendPageItemFragment();
+        PlayVideoPageItemFragment fragment = new PlayVideoPageItemFragment();
         fragment.setArguments(args);
         return fragment;
     }
@@ -169,6 +163,9 @@ public class RecommendPageItemFragment extends BaseFragment {
         }
     }
 
-
-
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        mVideoView.stop();
+    }
 }

@@ -4,7 +4,7 @@ package com.jqh.duanvideo.model;
  * Created by jiangqianghua on 18/4/14.
  */
 
-public class RecommendModule {
+public class VideoModule {
 
     private int userId ;
 

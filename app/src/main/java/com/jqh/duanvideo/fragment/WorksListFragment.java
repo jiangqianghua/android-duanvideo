@@ -2,6 +2,7 @@ package com.jqh.duanvideo.fragment;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Point;
 import android.os.Bundle;
 import android.os.Handler;
@@ -20,6 +21,7 @@ import com.jqh.duanvideo.utils.ImgUtils;
 import com.jqh.duanvideo.utils.ViewUtils;
 import com.jqh.duanvideo.view.pullloadview.PullLoadRecyclerView;
 import com.jqh.duanvideo.view.pullloadview.SpaceItemDecoration;
+import com.jqh.duanvideo.widget.PlayVideoListActivity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -39,6 +41,7 @@ public class WorksListFragment extends BaseFragment{
     public static final int REFRESH_DURATION = 500;//刷新时长，毫秒
     public static final int LOADMORE_DURATION = 100;//刷新时长，毫秒
 
+    private Activity mAttachActivity ;
     public static WorksListFragment newInstance() {
         
         Bundle args = new Bundle();
@@ -47,6 +50,13 @@ public class WorksListFragment extends BaseFragment{
         fragment.setArguments(args);
         return fragment;
     }
+
+    @Override
+    public void onAttach(Activity activity) {
+        super.onAttach(activity);
+        mAttachActivity = (Activity)activity;
+    }
+
     @Override
     protected void initView() {
         mPullLoadRecyclerView = bindViewId(R.id.pullLoadRecyclerView);
@@ -161,6 +171,16 @@ public class WorksListFragment extends BaseFragment{
                 Point point = ImgUtils.getVerPostSize(mContext,columns);
                 RelativeLayout.LayoutParams params = new RelativeLayout.LayoutParams(point.x,point.y);
                 itemViewHolder.mCoverImageView.setLayoutParams(params);
+                itemViewHolder.container.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Intent intent = new Intent(mAttachActivity,PlayVideoListActivity.class);
+                        Bundle bundle = new Bundle();
+                        intent.putExtras(bundle);
+                        mAttachActivity.startActivity(intent);
+                        // mAttachActivity.overridePendingTransition(R.anim.right_entry,0);
+                    }
+                });
             }
         }
 

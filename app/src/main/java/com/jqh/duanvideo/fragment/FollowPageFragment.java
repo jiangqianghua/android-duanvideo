@@ -2,6 +2,7 @@ package com.jqh.duanvideo.fragment;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Point;
 import android.os.Bundle;
 import android.os.Handler;
@@ -21,6 +22,7 @@ import com.jqh.duanvideo.utils.ImgUtils;
 import com.jqh.duanvideo.utils.ViewUtils;
 import com.jqh.duanvideo.view.pullloadview.PullLoadRecyclerView;
 import com.jqh.duanvideo.view.pullloadview.SpaceItemDecoration;
+import com.jqh.duanvideo.widget.PlayVideoListActivity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -32,6 +34,7 @@ import java.util.List;
 public class FollowPageFragment extends BaseFragment {
 
     private ActivityInterface mActivityInterface ;
+    private Activity mAttachActivity ;
     private int mColumns = 2;
     private int pageNo = 0 ;
     private PullLoadRecyclerView mPullLoadRecyclerView ;
@@ -73,6 +76,8 @@ public class FollowPageFragment extends BaseFragment {
     public void onAttach(Activity activity) {
         super.onAttach(activity);
         mActivityInterface = (ActivityInterface)activity;
+        mAttachActivity = (Activity)activity;
+
     }
 
     @Override
@@ -179,6 +184,16 @@ public class FollowPageFragment extends BaseFragment {
                 Point point = ImgUtils.getVerPostSize(mContext,columns);
                 RelativeLayout.LayoutParams params = new RelativeLayout.LayoutParams(point.x,point.y);
                 itemViewHolder.mCoverImageView.setLayoutParams(params);
+                itemViewHolder.container.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Intent intent = new Intent(mAttachActivity,PlayVideoListActivity.class);
+                        Bundle bundle = new Bundle();
+                        intent.putExtras(bundle);
+                        mAttachActivity.startActivity(intent);
+                        // mAttachActivity.overridePendingTransition(R.anim.right_entry,0);
+                    }
+                });
             }
         }
 

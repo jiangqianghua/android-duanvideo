@@ -37,6 +37,9 @@
             android:theme="@style/ImageTranslucentTheme"/>
         <activity android:name=".widget.UserInfoActivity"
             android:theme="@style/ImageTranslucentTheme"/>
+
+        <activity android:name=".widget.PlayVideoListActivity"
+            android:theme="@style/ImageTranslucentTheme"/>
     </application>
 
 </manifest>
