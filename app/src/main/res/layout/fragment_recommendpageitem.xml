@@ -16,6 +16,14 @@
 
     </com.jqh.duanvideo.view.JVideoView>
 
+    <ImageView
+        android:id="@+id/playicon_iv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@mipmap/playicon"
+        android:layout_centerInParent="true"
+        android:visibility="invisible"/>
+
     <com.jqh.duanvideo.view.RightToolView
         android:id="@+id/tools_view"
         android:layout_width="60dp"

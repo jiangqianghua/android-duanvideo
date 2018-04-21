@@ -5,6 +5,8 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.view.View;
+import android.widget.ImageView;
 
 import com.jqh.duanvideo.R;
 import com.jqh.duanvideo.base.BaseFragment;
@@ -36,6 +38,8 @@ public class PlayVideoPageItemFragment extends BaseFragment {
     private int commentsNum ;
     private int sendsNum;
     private int likesNum ;
+    private ImageView mPlayImageView ;
+    private boolean isPlay = false ;
     public static PlayVideoPageItemFragment newInstance(VideoModule recommendModule) {
 
         Bundle args = new Bundle();
@@ -77,6 +81,7 @@ public class PlayVideoPageItemFragment extends BaseFragment {
         mRightToolView.setmLikeNum(likesNum);
         mRightToolView.setSendNum(sendsNum);
         mRightToolView.loadAvater(avater);
+        mPlayImageView = bindViewId(R.id.playicon_iv);
 
     }
 
@@ -132,6 +137,44 @@ public class PlayVideoPageItemFragment extends BaseFragment {
                 ShareUtils.showShare(mAttachActivity);
             }
         });
+
+        mVideoView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                videoClick();
+            }
+        });
+
+        mPlayImageView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                videoClick();
+            }
+        });
+
+    }
+
+    private void videoClick(){
+        if(isPlay){
+            mPlayImageView.setVisibility(View.VISIBLE);
+            mVideoView.pause();
+            isPlay = false ;
+        }
+        else
+        {
+            if(!mVideoView.isPlaying()){
+                try {
+                    if(mVideoView.isPause())
+                        mVideoView.start();
+                    else
+                        mVideoView.start(url);
+                    isPlay = true;
+                    mPlayImageView.setVisibility(View.INVISIBLE);
+                }catch (Exception e){
+                    e.printStackTrace();
+                }
+            }
+        }
     }
 
     // 不起作用
@@ -154,12 +197,15 @@ public class PlayVideoPageItemFragment extends BaseFragment {
         if(isCreate && isVisibleToUser){
             try {
                 mVideoView.start(url);
+                isPlay = true;
+                mPlayImageView.setVisibility(View.INVISIBLE);
             }catch (Exception e){
                 e.printStackTrace();
             }
 
         } else if(isCreate && !isVisibleToUser){
             mVideoView.stop();
+            isPlay = false ;
         }
     }
 

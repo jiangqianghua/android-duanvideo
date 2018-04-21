@@ -8,4 +8,5 @@
     <string name="me">我</string>
     <string name="load_more_text">正在加载新数据...</string>
     <string name="share">短视频</string>
+    <string name="inputhint">喜欢就说出来</string>
 </resources>

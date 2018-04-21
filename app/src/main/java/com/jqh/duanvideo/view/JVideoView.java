@@ -163,6 +163,10 @@ public class JVideoView extends RelativeLayout implements SurfaceHolder.Callback
         return mediaPlayer.isPlaying();
     }
 
+    public boolean isPause(){
+        return mediaPlayer.isPause();
+    }
+
     /**
      * has video
      * @return

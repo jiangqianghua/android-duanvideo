@@ -14,4 +14,11 @@
     <!--android:layout_height="match_parent"-->
     <!--app:isVertical="true">-->
     <!--</com.jqh.duanvideo.viewpager.HorizonVerticalViewPager>-->
+
+    <com.jqh.duanvideo.view.InputCommentVideoView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true">
+
+    </com.jqh.duanvideo.view.InputCommentVideoView>
 </RelativeLayout>
