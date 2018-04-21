@@ -21,11 +21,6 @@ public class RecodCameraActivity extends BaseActivity {
     private RelativeLayout camera_container_rl ;
     private GameDisplay gameDisplay;
 
-    private Button startBtn ;
-    private Button stopBtn ;
-
-    private Button toMp4Btn ;
-
     private RecodBtnView recodBtnView;
 
     @Override
@@ -44,10 +39,6 @@ public class RecodCameraActivity extends BaseActivity {
         camera_container_rl.addView(gameDisplay);
         gameDisplay.setVisibility(SurfaceView.VISIBLE);
 
-        startBtn = bindViewId(R.id.startBtn);
-        stopBtn = bindViewId(R.id.stopBtn);
-        toMp4Btn = bindViewId(R.id.toMp4Btn);
-
         recodBtnView = bindViewId(R.id.recodBtnView);
     }
 
@@ -58,31 +49,14 @@ public class RecodCameraActivity extends BaseActivity {
 
     @Override
     protected void initEvent() {
-        startBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                gameDisplay.startRecod();
-            }
-        });
-
-        stopBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                gameDisplay.stopRecod();
-            }
-        });
-
-        toMp4Btn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                gameDisplay.toMp4();
-            }
-        });
-
         recodBtnView.setOnHoldListener(new RecodBtnView.OnHoldListener() {
             @Override
             public void onHold(boolean hold) {
-                
+                if(hold){
+                    gameDisplay.startRecod();
+                }else{
+                    gameDisplay.stopRecod();
+                }
             }
         });
     }

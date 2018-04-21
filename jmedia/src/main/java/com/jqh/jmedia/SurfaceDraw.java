@@ -5,6 +5,7 @@ import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.Matrix;
 import android.graphics.Point;
+import android.graphics.Rect;
 import android.hardware.Camera;
 import android.util.DisplayMetrics;
 import android.util.Log;
@@ -22,6 +23,8 @@ public class SurfaceDraw {
     public Integer width = new Integer(0);
     /** 视频实际高 */
     public Integer height = new Integer(0);
+
+    private Rect gRect;
     /******************** 绘图数据 ********************/
     //private boolean isDraw = false;
     private Bitmap bmpOriginal = null; // 原始视频位图
@@ -67,6 +70,7 @@ public class SurfaceDraw {
                     Bitmap.Config.RGB_565);
             bmpOriginal.copyPixelsFromBuffer(byteBuffer);
             if (matrix == null) {
+                gRect = new Rect(0,0,canvas.getWidth(),canvas.getHeight());
                 matrix = new Matrix();
                 float scaleWidth = (float) canvas.getWidth()
                         / (float) bmpOriginal.getWidth();
@@ -77,7 +81,8 @@ public class SurfaceDraw {
                 } else {
                     matrix.postScale(scaleHeight, scaleHeight);
                 }
-                // matrix.setRotate(90);
+                if(width > height)
+                    matrix.setRotate(-90);
                 bmpScale = Bitmap.createBitmap(bmpOriginal, 0, 0,
                         bmpOriginal.getWidth(), bmpOriginal.getHeight(), matrix,
                         true);
@@ -94,7 +99,8 @@ public class SurfaceDraw {
                 synchronized(bmpScale)
                 {
                     //LogUtil.i("canvas->drawBitmap");
-                    canvas.drawBitmap(bmpScale, fStartX, fStartY, null);
+                    //canvas.drawBitmap(bmpScale, fStartX, fStartY, null);
+                    canvas.drawBitmap(bmpScale, null,gRect, null);
                 }
             }
 
