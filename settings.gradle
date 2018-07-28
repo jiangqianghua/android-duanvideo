@@ -1,1 +1,1 @@
-include ':app', ':jmedia', ':mediaplayer'
+include ':app', ':jmedia', ':mediaplayer', ':jliblive'

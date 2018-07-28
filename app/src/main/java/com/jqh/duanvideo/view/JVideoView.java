@@ -1,6 +1,7 @@
 package com.jqh.duanvideo.view;
 
 import android.content.Context;
+import android.media.MediaPlayer;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.SurfaceHolder;
@@ -18,7 +19,7 @@ public class JVideoView extends RelativeLayout implements SurfaceHolder.Callback
 
     private Context mContext ;
     private SurfaceView mSurfaceView ;
-    private JMediaPlayer mediaPlayer ;
+    private MediaPlayer mediaPlayer ;
 
     private long mCurSeek = 0;
     private float mCurSpeed = 1.0f ;
@@ -51,25 +52,25 @@ public class JVideoView extends RelativeLayout implements SurfaceHolder.Callback
     public void init(Context context){
         this.mContext = context ;
         LayoutInflater.from(mContext).inflate(R.layout.view_jvideo,this);
-        mediaPlayer = JMediaPlayer.getInstance();
+        mediaPlayer = new MediaPlayer();
         mSurfaceView = (SurfaceView) findViewById(R.id.surface_view);
         mSurfaceView.getHolder().addCallback(this);
         initEvent();
     }
 
     private void initEvent(){
-        mediaPlayer.setOnPreparedListener(new JMediaPlayer.OnPreparedListener() {
+        mediaPlayer.setOnPreparedListener(new MediaPlayer.OnPreparedListener() {
             @Override
-            public void onPrepared(JMediaPlayer mp) {
+            public void onPrepared(MediaPlayer mp) {
                 mediaPlayer.start();
                 if(mIVideoPlayerListener != null)
                     mIVideoPlayerListener.onSuccess();
             }
         });
 
-        mediaPlayer.setOnErrorListener(new JMediaPlayer.OnErrorListener() {
+        mediaPlayer.setOnErrorListener(new MediaPlayer.OnErrorListener() {
             @Override
-            public boolean onError(JMediaPlayer mp, int what, int extra) {
+            public boolean onError(MediaPlayer mp, int what, int extra) {
                 if(mIVideoPlayerListener != null)
                     mIVideoPlayerListener.onError(what,"error");
                 return false;
@@ -81,7 +82,7 @@ public class JVideoView extends RelativeLayout implements SurfaceHolder.Callback
 
     @Override
     public void surfaceCreated(SurfaceHolder holder) {
-//        mediaPlayer.setDisplay(mSurfaceView.getHolder());
+        mediaPlayer.setDisplay(mSurfaceView.getHolder());
     }
 
     @Override
@@ -120,7 +121,7 @@ public class JVideoView extends RelativeLayout implements SurfaceHolder.Callback
         mediaPlayer.setDisplay(mSurfaceView.getHolder());
         initEvent();
         mCurSeek = seek ;
-        mediaPlayer.setPlaybackSpeed(speed);
+      //  mediaPlayer.setPlaybackSpeed(speed);
         mCurSpeed = speed ;
         mediaPlayer.setDataSource(path);
         mediaPlayer.prepareAsync();
@@ -142,14 +143,6 @@ public class JVideoView extends RelativeLayout implements SurfaceHolder.Callback
         mediaPlayer.pause();
     }
 
-    public void seekTo(long seek ){
-        mediaPlayer.seekTo(seek);
-    }
-
-    public void seekToAndStart(long seek ){
-        mediaPlayer.seekTo(seek);
-        mediaPlayer.start();
-    }
 
     public void start(){
         mediaPlayer.start();
@@ -163,7 +156,7 @@ public class JVideoView extends RelativeLayout implements SurfaceHolder.Callback
     }
 
     public boolean isPause(){
-        return mediaPlayer.isPause();
+        return !mediaPlayer.isPlaying();
     }
 
     /**
@@ -178,7 +171,6 @@ public class JVideoView extends RelativeLayout implements SurfaceHolder.Callback
 
     public void setSpeed(float speed){
         if(mediaPlayer != null) {
-            mediaPlayer.setPlaybackSpeed(speed);
             mCurSpeed = speed ;
         }
     }

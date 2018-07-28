@@ -10,6 +10,9 @@ android {
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        ndk {
+            abiFilters 'armeabi-v7a'
+        }
     }
     buildTypes {
         release {
@@ -40,6 +43,7 @@ dependencies {
     testCompile 'junit:junit:4.12'
     compile project(':jmedia')
     compile project(':mediaplayer')
+    compile project(':jliblive')
 }
 
 
