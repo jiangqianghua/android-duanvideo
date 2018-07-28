@@ -8,7 +8,6 @@ import android.view.SurfaceView;
 import android.widget.RelativeLayout;
 
 import com.jqh.duanvideo.R;
-import com.jqh.duanvideo.utils.ViewUtils;
 import com.jqh.jmedia.JMediaPlayer;
 
 /**

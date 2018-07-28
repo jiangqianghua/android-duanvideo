@@ -88,7 +88,7 @@ public class RecommendPageFragment extends BaseFragment {
         recommendModule1.setUserId(0);
         recommendModule1.setWorksId(100);
         recommendModule1.setComentNum(66);
-        fm1 = PlayVideoPageItemFragment.newInstance(recommendModule1);
+        fm2 = PlayVideoPageItemFragment.newInstance(recommendModule1);
         recommendModule1 = new VideoModule();
         recommendModule1.setAvater("http://img1.2345.com/duoteimg/qqTxImg/2013/12/ns/29-020632_476.jpg");
         recommendModule1.setmMediaUlr("http://ksy.fffffive.com/mda-hifsrhtqjn8jxeha/mda-hifsrhtqjn8jxeha.mp4");
@@ -97,7 +97,7 @@ public class RecommendPageFragment extends BaseFragment {
         recommendModule1.setUserId(0);
         recommendModule1.setWorksId(100);
         recommendModule1.setComentNum(66);
-        fm2 = PlayVideoPageItemFragment.newInstance(recommendModule1);
+        fm1 = PlayVideoPageItemFragment.newInstance(recommendModule1);
         recommendModule1 = new VideoModule();
         recommendModule1.setAvater("http://img3.duitang.com/uploads/item/201608/12/20160812005801_kKHTy.jpeg");
         recommendModule1.setmMediaUlr("http://ksy.fffffive.com/mda-hiw61ic7i4qkcvmx/mda-hiw61ic7i4qkcvmx.mp4");

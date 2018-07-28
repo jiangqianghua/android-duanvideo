@@ -1,1 +1,1 @@
-include ':app', ':jmedia'
+include ':app', ':jmedia', ':mediaplayer'

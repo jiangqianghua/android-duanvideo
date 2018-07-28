@@ -5,6 +5,7 @@
       <module fileurl="file://$PROJECT_DIR$/DuanVideo.iml" filepath="$PROJECT_DIR$/DuanVideo.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/jmedia/jmedia.iml" filepath="$PROJECT_DIR$/jmedia/jmedia.iml" />
+      <module fileurl="file://$PROJECT_DIR$/mediaplayer/mediaplayer.iml" filepath="$PROJECT_DIR$/mediaplayer/mediaplayer.iml" />
     </modules>
   </component>
 </project>
